@@ -1,3 +1,5 @@
+var oldMessages = [];
+
 var array = ["No it's not Space Jam", 
 "No it's not The Jam",
 "Still not Space Jam",
@@ -14,9 +16,29 @@ $("#submitter").click(function(){
         console.log("This is Space Jam");
     }
     else
-    {
-        var randomIndex =
-        console.log(array[randomIndex]);
+    {   
+        doEverything();
+        function doEverything(){
+            var randomIndex = Math.floor(Math.random() * array.length);
+            var testy = oldMessages.indexOf(randomIndex);
+            console.log(testy);
+
+            if (testy === -1)
+            {
+                oldMessages.push(randomIndex);
+                console.log(array[randomIndex]);
+
+            }
+            else 
+            {   
+                if (array.length !== oldMessages.length)
+                {
+                    doEverything();                   
+                }
+
+            }
+        }
+        
     }
 });
 
