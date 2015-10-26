@@ -10,35 +10,39 @@ console.log("Alert are lames");
 
 
 $("#submitter").click(function(){
-    var userInput = $("#SpaceJam-checker").val();
-    if (userInput === "Space Jam")
-    {
-        console.log("This is Space Jam");
-    }
-    else
-    {   
-        doEverything();
-        function doEverything(){
-            var randomIndex = Math.floor(Math.random() * array.length);
-            var testy = oldMessages.indexOf(randomIndex);
-            console.log(testy);
+  var userInput = $("#SpaceJam-checker").val();
+  if (userInput === "Space Jam")
+  {
+    $("#answers").text("Yes. This is Space Jam.");
+  }
+  else
+  {   
+    doEverything();
+    function doEverything(){  
+      var randomIndex = Math.floor(Math.random() * array.length);
+      var testy = oldMessages.indexOf(randomIndex);
 
-            if (testy === -1)
-            {
-                oldMessages.push(randomIndex);
-                console.log(array[randomIndex]);
+      if (testy === -1)
+      {
+        oldMessages.push(randomIndex);
+        $("#answers").text(array[randomIndex]);
 
-            }
-            else 
-            {   
-                if (array.length !== oldMessages.length)
-                {
-                    doEverything();                   
-                }
-
-            }
+      }
+      else 
+      {   
+        if (array.length !== oldMessages.length)
+        {
+          doEverything();                   
         }
-        
+        else 
+        {
+          oldMessages = [];
+          doEverything();
+        }
+
+      }
     }
+
+  }
 });
 
