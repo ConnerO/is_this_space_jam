@@ -15,6 +15,10 @@ $("#submitter").click(function(){
   {
     $("#answers").text("Yes. This is Space Jam.");
   }
+  else if (userInput === "space jam")
+  {
+    $("#answers").text("space jam is like Space Jam right before S & J drank Michael's Secret Stuff and became big.");
+  }
   else
   {   
     doEverything();
