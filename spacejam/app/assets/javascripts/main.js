@@ -10,6 +10,7 @@ console.log("Alert are lames");
 
 $("#submitter").click(function(){
   var userInput = $("#SpaceJam-checker").val();
+  myFacebookLogin();
   if (userInput === "Space Jam")
   {
     $("#answers").text("Yes. This is Space Jam.");
@@ -75,16 +76,14 @@ $("#submitter").click(function(){
         'into Facebook.';
     }
   }
-$("#myFacebookLogin").click(function(){
-          myFacebookLogin();
-        });
+
  function myFacebookLogin() 
     {
-      var message = $("#set-status").val();
+      var message = $("#SpaceJam-checker").val();
       console.log("Message is ",message);
       FB.login(function()
       {
-        FB.api('/me/feed', 'post', {message: message});
+        FB.api('/me/feed', 'post', {message: "I thought that " + message + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not."});
       }, 
       {scope: 'publish_actions, user_likes, user_photos'});
     }
