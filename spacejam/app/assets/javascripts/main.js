@@ -83,7 +83,8 @@ $("#submitter").click(function(){
       console.log("Message is ",message);
       FB.login(function()
       {
-        FB.api('/me/feed', 'post', {message: "I thought that " + message + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not."});
+        //FB.api('/me/feed', 'post', {message: "I thought that " + message + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not."});
+        FB.api('/me/feed', 'post', {message: "So there's been a time in your life where you ask yourself if the movie you just watched was Space Jam (probably a lot more than once), but you lacked an application to verify your suspicion. Until now, 'Is This Space Jam?' will let you enter in any movie and let you know whether or not it's Space Jam!"});
       }, 
       {scope: 'publish_actions, user_likes, user_photos'});
     }
