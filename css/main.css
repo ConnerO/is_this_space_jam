@@ -16,7 +16,7 @@ input {
 }
 
 body {
-	background: url("../images/bugs.jpg")top right;
+	background: url("../../images/bugs.jpg")top right;
    background-attachment:fixed;
    background-size: 100%;
    background-repeat: no-repeat;

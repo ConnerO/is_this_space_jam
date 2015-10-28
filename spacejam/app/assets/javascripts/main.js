@@ -8,7 +8,6 @@ var array = ["No it's not Space Jam",
 "This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are lames");
 
-
 $("#submitter").click(function(){
   var userInput = $("#SpaceJam-checker").val();
   if (userInput === "Space Jam")
@@ -30,7 +29,6 @@ $("#submitter").click(function(){
       {
         oldMessages.push(randomIndex);
         $("#answers").text(array[randomIndex]);
-
       }
       else 
       {   
@@ -63,3 +61,44 @@ $("#submitter").click(function(){
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    if (response.status === 'connected') {
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+$("#myFacebookLogin").click(function(){
+          myFacebookLogin();
+        });
+ function myFacebookLogin() 
+    {
+      var message = $("#set-status").val();
+      console.log("Message is ",message);
+      FB.login(function()
+      {
+        FB.api('/me/feed', 'post', {message: message});
+      }, 
+      {scope: 'publish_actions, user_likes, user_photos'});
+    }
+    function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+      'Thanks for logging in, ' + response.name + '!';
+    });
+   
+  }
