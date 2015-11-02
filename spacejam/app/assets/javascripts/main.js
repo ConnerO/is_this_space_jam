@@ -11,18 +11,9 @@ console.log("Alert are lames");
 $("#submitter").click(function(){
   var userInput = $("#SpaceJam-checker").val();
   myFacebookLogin();
-  if (userInput === "Space Jam")
-  {
-    $("#answers").text("Yes. This is Space Jam.");
-  }
-  else if (userInput === "space jam")
-  {
-    $("#answers").text("space jam is like Space Jam right before S & J drank Michael's Secret Stuff and became big.");
-  }
-  else
-  {   
-    doEverything();
-    function doEverything(){  
+});
+
+function doEverything(){  
       var randomIndex = Math.floor(Math.random() * array.length);
       var testy = oldMessages.indexOf(randomIndex);
 
@@ -44,8 +35,6 @@ $("#submitter").click(function(){
         }
       }
     }
-  }
-});
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -81,13 +70,22 @@ function myFacebookLogin()
 { 
   var userInput = $("#SpaceJam-checker").val();
 
-  if (userInput === "Space Jam") 
+  if (userInput === "Space Jam" || userInput === "space jam") 
   {
+    if (userInput === "space jam")
+    {
+      $("#answers").text("space jam is like Space Jam right before S & J drank Michael's Secret Stuff and became big.");
+    }
+    else
+    {
+      $("#answers").text("Yes. This is the Space Jam.");
+    }
     console.log("Message is ",userInput);
     var message = "I was correct! " + userInput + " is indeed Space Jam. Thank god for 'Is This Space Jam'!";
   }
   else
   {
+    doEverything();
     var message = "I thought that " + userInput + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not.";
   }
   FB.login(function()
@@ -112,5 +110,4 @@ function testAPI() {
     document.getElementById('status').innerHTML =
     'Thanks for logging in, ' + response.name + '!';
   });
-
 }
