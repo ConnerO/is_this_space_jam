@@ -77,49 +77,30 @@ function statusChangeCallback(response) {
   }
 }
 
-function myFacebookLogin() { 
+function myFacebookLogin() 
+{ 
   var userInput = $("#SpaceJam-checker").val();
 
-  if (userInput === "Space Jam") {
-
-    var message = $("#SpaceJam-checker").val();
-    console.log("Message is ",message);
-    FB.login(function()
-    {
-<<<<<<< HEAD
-      var message = $("#SpaceJam-checker").val();
-      console.log("Message is ",message);
-      FB.login(function()
-      {
-        //FB.api('/me/feed', 'post', {message: "I thought that " + message + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not."});
-        FB.api('/me/feed', 'post', {message: "So there's been a time in your life where you ask yourself if the movie you just watched was Space Jam (probably a lot more than once), but you lacked an application to verify your suspicion. Until now, 'Is This Space Jam?' will let you enter in any movie and let you know whether or not it's Space Jam!"});
-      }, 
-      {scope: 'publish_actions, user_likes, user_photos'});
-    }
-    function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-=======
-      FB.api('/me/feed', 'post', {message: "I was correct! " + message + " is indeed Space Jam. Thank god for 'Is This Space Jam'"});
-    }, 
-    {scope: 'publish_actions, user_likes, user_photos'});
->>>>>>> 17d7569044244c5be7b0eb5f7a30248aa5bf4143
+  if (userInput === "Space Jam") 
+  {
+    console.log("Message is ",userInput);
+    var message = "I was correct! " + userInput + " is indeed Space Jam. Thank god for 'Is This Space Jam'!";
   }
-  else {
-  
-    var message = $("#SpaceJam-checker").val();
-    console.log("Message is ",message);
-    FB.login(function()
-    {
-      FB.api('/me/feed', 'post', {message: "I thought that " + message + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not."});
-    }, 
-    {scope: 'publish_actions, user_likes, user_photos'});
+  else
+  {
+    var message = "I thought that " + userInput + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not.";
   }
+  FB.login(function()
+  {
+      FB.api('/me/feed', 'post', {message: message});
+  }, 
+    {scope: 'publish_actions, user_likes, user_photos'});
 }
 
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
+function checkLoginState() 
+{
+  FB.getLoginStatus(function(response) 
+  {
     statusChangeCallback(response);
   });
 }
