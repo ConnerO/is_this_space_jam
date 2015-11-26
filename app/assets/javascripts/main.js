@@ -11,8 +11,15 @@ name = "";
 // testResponse = 0;
 
 $("#submitter").click(function(){
-  var userInput = $("#SpaceJam-checker").val();
-  myFacebookLogin();
+  if (name)
+  {
+    var userInput = $("#SpaceJam-checker").val();
+    myFacebookLogin();
+  }
+  else
+  {
+    document.getElementById('status').innerHTML = "You need to sign in, in order to use this sweet sweet app";
+  }
 });
 
 function doEverything(){
@@ -107,7 +114,6 @@ function checkLoginState()
 
 function testAPI() {
   FB.api('/me', function(response) {
-    testRes = response;
     name = response.name;
     console.log('Successful login for: ' + response.name);
     document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
