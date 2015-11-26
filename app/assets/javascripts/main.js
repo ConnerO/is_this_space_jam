@@ -13,11 +13,12 @@ name = "";
 $("#submitter").click(function(){
   FB.getLoginStatus(function(response)
   {
-    if(response === "unknown")
+    var resStatus = response.status;
+    if(resStatus === "unknown")
     {
       $("#status").text("You NEEEEEEEED to sign in first bro");
     }
-    else if (response === "connected")
+    else if (resStatus === "connected")
     {
       var userInput = $("#SpaceJam-checker").val();
       myFacebookLogin();
