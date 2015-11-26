@@ -12,6 +12,7 @@ console.log("Alert are lames");
 name = "";
 
 $("#submitter").click(function(){
+<<<<<<< HEAD
   console.log("testing click");
   // FB.getLoginStatus(function(response)
   // {
@@ -38,6 +39,10 @@ function doEverything(){
   var testy = oldMessages.indexOf(randomIndex);
 
   if (testy === -1)
+=======
+  console.log("This has been clicked");
+  FB.getLoginStatus(function(response)
+>>>>>>> old-state
   {
     oldMessages.push(randomIndex);
     $("#answers").text(array[randomIndex]);
