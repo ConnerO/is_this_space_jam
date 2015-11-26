@@ -1,4 +1,5 @@
 var oldMessages = [];
+var testtttttt = "Oh hey I guys, I'm just here to make sure we have something to add and commit! Don't mind me!!"
 
 var array = ["No it's not Space Jam",
 "No it's not The Jam",
