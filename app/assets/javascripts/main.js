@@ -11,15 +11,22 @@ name = "";
 // testResponse = 0;
 
 $("#submitter").click(function(){
-  if (name)
+  FB.getLoginStatus(function(response)
   {
-    var userInput = $("#SpaceJam-checker").val();
-    myFacebookLogin();
-  }
-  else
-  {
-    document.getElementById('status').innerHTML = "You need to sign in, in order to use this sweet sweet app";
-  }
+    if(response === "unknown")
+    {
+      $("#status").text("You NEEEEEEEED to sign in first bro");
+    }
+    else if (response === "connected")
+    {
+      var userInput = $("#SpaceJam-checker").val();
+      myFacebookLogin();
+    }
+    else
+    {
+      console.log("The response is ",response);
+    }
+  });
 });
 
 function doEverything(){
