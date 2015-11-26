@@ -1,5 +1,3 @@
-$(function(){
-
 var oldMessages = [];
 var testtttttt = "Oh hey I guys, I'm just here to make sure we have something to add and commit! Don't mind me!!"
 
@@ -11,26 +9,51 @@ var array = ["No it's not Space Jam",
 "This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are lames");
 name = "";
+// testResponse = 0;
 
 $("#submitter").click(function(){
-
+  console.log("This has been clicked");
+  FB.getLoginStatus(function(response)
   {
-    oldMessages.push(randomIndex);
-    $("#answers").text(array[randomIndex]);
-  }
-  else
-  {
-    if (array.length !== oldMessages.length)
+    var resStatus = response.status;
+    if(resStatus === "unknown")
     {
-      doEverything();
+      $("#status").text("You NEEEEEEEED to sign in first bro");
+    }
+    else if (resStatus === "connected")
+    {
+      var userInput = $("#SpaceJam-checker").val();
+      myFacebookLogin();
     }
     else
     {
-      oldMessages = [];
-      doEverything();
+      console.log("The response is ",response);
     }
-  }
-}
+  });
+});
+
+function doEverything(){
+      var randomIndex = Math.floor(Math.random() * array.length);
+      var testy = oldMessages.indexOf(randomIndex);
+
+      if (testy === -1)
+      {
+        oldMessages.push(randomIndex);
+        $("#answers").text(array[randomIndex]);
+      }
+      else
+      {
+        if (array.length !== oldMessages.length)
+        {
+          doEverything();
+        }
+        else
+        {
+          oldMessages = [];
+          doEverything();
+        }
+      }
+    }
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -87,7 +110,7 @@ function myFacebookLogin()
   FB.login(function(){
       FB.api('/me/feed', 'post', {message: message});
   },
-    {scope: 'publish_actions, user_likes, user_photos,manage_pages,status_update'},return_scopes: true);
+    {scope: 'publish_actions, user_likes, user_photos'});
 }
 
 function checkLoginState()
@@ -96,7 +119,7 @@ function checkLoginState()
   {
     checkLogResponse = response;
     console.log("The response of checkLoginState is ",response);
-    statusChangeCallback(response);
+    statusChangeCallback(response);st
   });
 }
 
@@ -107,4 +130,3 @@ function testAPI() {
     document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
   });
 }
-});
