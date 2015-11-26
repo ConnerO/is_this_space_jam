@@ -1,19 +1,20 @@
 var oldMessages = [];
 
-var array = ["No it's not Space Jam", 
+var array = ["No it's not Space Jam",
 "No it's not The Jam",
 "Still not Space Jam",
 "You wish this was Space Jam",
 "If you think this movie is Space Jam, you clearly don't know Space Jam",
 "This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are lames");
+testResponse;
 
 $("#submitter").click(function(){
   var userInput = $("#SpaceJam-checker").val();
   myFacebookLogin();
 });
 
-function doEverything(){  
+function doEverything(){
       var randomIndex = Math.floor(Math.random() * array.length);
       var testy = oldMessages.indexOf(randomIndex);
 
@@ -22,13 +23,13 @@ function doEverything(){
         oldMessages.push(randomIndex);
         $("#answers").text(array[randomIndex]);
       }
-      else 
-      {   
+      else
+      {
         if (array.length !== oldMessages.length)
         {
-          doEverything();                   
+          doEverything();
         }
-        else 
+        else
         {
           oldMessages = [];
           doEverything();
@@ -53,8 +54,8 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 function statusChangeCallback(response) {
-  console.log('statusChangeCallback');
-  console.log(response);
+  console.log('statusChangeCallback ',response);
+  testResponse = response;
   if (response.status === 'connected') {
     testAPI();
   } else if (response.status === 'not_authorized') {
@@ -66,11 +67,11 @@ function statusChangeCallback(response) {
   }
 }
 
-function myFacebookLogin() 
-{ 
+function myFacebookLogin()
+{
   var userInput = $("#SpaceJam-checker").val();
 
-  if (userInput === "Space Jam" || userInput === "space jam") 
+  if (userInput === "Space Jam" || userInput === "space jam")
   {
     if (userInput === "space jam")
     {
@@ -91,13 +92,13 @@ function myFacebookLogin()
   FB.login(function()
   {
       FB.api('/me/feed', 'post', {message: message});
-  }, 
+  },
     {scope: 'publish_actions, user_likes, user_photos'});
 }
 
-function checkLoginState() 
+function checkLoginState()
 {
-  FB.getLoginStatus(function(response) 
+  FB.getLoginStatus(function(response)
   {
     statusChangeCallback(response);
   });
