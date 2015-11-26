@@ -14,6 +14,7 @@ $("#submitter").click(function(){
   FB.getLoginStatus(function(response)
   {
     var resStatus = response.status;
+    console.log("First, resStatus is ",resStatus);
     if(resStatus === "unknown")
     {
       $("#status").text("You NEEEEEEEED to sign in first bro");
