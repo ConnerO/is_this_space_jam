@@ -1,3 +1,5 @@
+$(function(){
+
 var oldMessages = [];
 
 var array = ["No it's not Space Jam",
@@ -129,3 +131,4 @@ function testAPI() {
     document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
   });
 }
+});
