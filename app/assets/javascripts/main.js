@@ -117,7 +117,7 @@ function checkLoginState()
   {
     checkLogResponse = response;
     console.log("The response of checkLoginState is ",response);
-    statusChangeCallback(response);st
+    statusChangeCallback(response);
   });
 }
 
