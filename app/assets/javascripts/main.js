@@ -12,37 +12,7 @@ console.log("Alert are lames");
 name = "";
 
 $("#submitter").click(function(){
-<<<<<<< HEAD
-  console.log("testing click");
-  // FB.getLoginStatus(function(response)
-  // {
-  //   var resStatus = response.status;
-  //   console.log("First, resStatus is ",resStatus);
-  //   if(resStatus === "unknown")
-  //   {
-  //     $("#status").text("You NEEEEEEEED to sign in first bro");
-  //   }
-  //   else if (resStatus === "connected")
-  //   {
-  //     var userInput = $("#SpaceJam-checker").val();
-  //     myFacebookLogin();
-  //   }
-  //   else
-  //   {
-  //     console.log("The response is ",response);
-  //   }
-  // });
-});
 
-function doEverything(){
-  var randomIndex = Math.floor(Math.random() * array.length);
-  var testy = oldMessages.indexOf(randomIndex);
-
-  if (testy === -1)
-=======
-  console.log("This has been clicked");
-  FB.getLoginStatus(function(response)
->>>>>>> old-state
   {
     oldMessages.push(randomIndex);
     $("#answers").text(array[randomIndex]);
