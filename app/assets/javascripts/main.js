@@ -32,27 +32,27 @@ $("#submitter").click(function(){
 });
 
 function doEverything(){
-      var randomIndex = Math.floor(Math.random() * array.length);
-      var testy = oldMessages.indexOf(randomIndex);
+  var randomIndex = Math.floor(Math.random() * array.length);
+  var testy = oldMessages.indexOf(randomIndex);
 
-      if (testy === -1)
-      {
-        oldMessages.push(randomIndex);
-        $("#answers").text(array[randomIndex]);
-      }
-      else
-      {
-        if (array.length !== oldMessages.length)
-        {
-          doEverything();
-        }
-        else
-        {
-          oldMessages = [];
-          doEverything();
-        }
-      }
+  if (testy === -1)
+  {
+    oldMessages.push(randomIndex);
+    $("#answers").text(array[randomIndex]);
+  }
+  else
+  {
+    if (array.length !== oldMessages.length)
+    {
+      doEverything();
     }
+    else
+    {
+      oldMessages = [];
+      doEverything();
+    }
+  }
+}
 
 window.fbAsyncInit = function() {
   FB.init({
