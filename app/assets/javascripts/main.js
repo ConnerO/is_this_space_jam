@@ -107,6 +107,7 @@ function checkLoginState()
 {
   FB.getLoginStatus(function(response)
   {
+    checkLogResponse = response;
     console.log("The response of checkLoginState is ",response);
     statusChangeCallback(response);st
   });
