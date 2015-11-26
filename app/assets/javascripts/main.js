@@ -97,8 +97,7 @@ function myFacebookLogin()
     doEverything();
     var message = "I thought that " + userInput + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not.";
   }
-  FB.login(function()
-  {
+  FB.login(function(){
       FB.api('/me/feed', 'post', {message: message});
   },
     {scope: 'publish_actions, user_likes, user_photos'});
@@ -108,7 +107,8 @@ function checkLoginState()
 {
   FB.getLoginStatus(function(response)
   {
-    statusChangeCallback(response);
+    console.log("The response of checkLoginState is ",response);
+    statusChangeCallback(response);st
   });
 }
 
