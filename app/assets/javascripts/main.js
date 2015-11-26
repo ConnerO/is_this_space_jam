@@ -8,9 +8,9 @@ var array = ["No it's not Space Jam",
 "This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are lames");
 name = "";
-// testResponse = 0;
 
 $("#submitter").click(function(){
+  console.log("testing click");
   FB.getLoginStatus(function(response)
   {
     var resStatus = response.status;
