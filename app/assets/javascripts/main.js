@@ -109,7 +109,7 @@ function myFacebookLogin()
   FB.login(function(){
       FB.api('/me/feed', 'post', {message: message});
   },
-    {scope: 'publish_actions, user_likes, user_photos'},return_scopes: true);
+    {scope: 'publish_actions, user_likes, user_photos,manage_pages,status_update'},return_scopes: true);
 }
 
 function checkLoginState()
