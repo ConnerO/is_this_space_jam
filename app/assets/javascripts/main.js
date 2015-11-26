@@ -11,6 +11,7 @@ name = "";
 // testResponse = 0;
 
 $("#submitter").click(function(){
+  console.log("This has been clicked");
   FB.getLoginStatus(function(response)
   {
     var resStatus = response.status;
