@@ -13,24 +13,24 @@ name = "";
 
 $("#submitter").click(function(){
   console.log("testing click");
-  FB.getLoginStatus(function(response)
-  {
-    var resStatus = response.status;
-    console.log("First, resStatus is ",resStatus);
-    if(resStatus === "unknown")
-    {
-      $("#status").text("You NEEEEEEEED to sign in first bro");
-    }
-    else if (resStatus === "connected")
-    {
-      var userInput = $("#SpaceJam-checker").val();
-      myFacebookLogin();
-    }
-    else
-    {
-      console.log("The response is ",response);
-    }
-  });
+  // FB.getLoginStatus(function(response)
+  // {
+  //   var resStatus = response.status;
+  //   console.log("First, resStatus is ",resStatus);
+  //   if(resStatus === "unknown")
+  //   {
+  //     $("#status").text("You NEEEEEEEED to sign in first bro");
+  //   }
+  //   else if (resStatus === "connected")
+  //   {
+  //     var userInput = $("#SpaceJam-checker").val();
+  //     myFacebookLogin();
+  //   }
+  //   else
+  //   {
+  //     console.log("The response is ",response);
+  //   }
+  // });
 });
 
 function doEverything(){
