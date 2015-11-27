@@ -6,7 +6,6 @@ var array = ["No it's not Space Jam",
 "If you think this movie is Space Jam, you clearly don't know Space Jam",
 "This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are lames");
-console.log("This isn't going to show is it.");
 name = "";
 // testResponse = 0;
 
@@ -18,6 +17,7 @@ $("#submitter").click(function(){
     if(resStatus === "unknown")
     {
       $("#status").text("You NEEEEEEEED to sign in first bro");
+      FB.login();
     }
     else if (resStatus === "connected")
     {
