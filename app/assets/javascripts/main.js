@@ -6,7 +6,7 @@ var array = ["No it's not Space Jam",
 "If you think this movie is Space Jam, you clearly don't know Space Jam",
 "This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are lames");
-console.log("Another test log");
+console.log("Different test log");
 
 $("#submitter").click(function(){
   console.log("This has been clicked");
@@ -16,7 +16,6 @@ $("#submitter").click(function(){
     if(resStatus === "unknown")
     {
       $("#status").text("You NEEEEEEEED to sign in first bro");
-      // FB.login(function(){},{scope: 'publish_actions'});
     }
     else if (resStatus === "connected")
     {
@@ -104,10 +103,6 @@ function myFacebookLogin()
     var message = "I thought " + userInput + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not.";
   }
   FB.api('/me/feed', 'post', {message: message});
-  // FB.login(function(){
-  //     FB.api('/me/feed', 'post', {message: message});
-  // },
-  //   {scope: 'publish_actions, user_likes, user_photos,manage_pages,publish_pages,public_profile,user_friends,email,user_about_me,user_actions.books,user_actions.fitness,user_actions.music,user_actions.news,user_actions.video,user_photos,user_posts'});
 }
 
 function checkLoginState()
