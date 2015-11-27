@@ -17,7 +17,7 @@ $("#submitter").click(function(){
     if(resStatus === "unknown")
     {
       $("#status").text("You NEEEEEEEED to sign in first bro");
-      FB.login();
+      FB.login(function(){},{scope: 'publish_actions'});
     }
     else if (resStatus === "connected")
     {
