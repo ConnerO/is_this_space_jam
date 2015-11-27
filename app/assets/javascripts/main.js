@@ -1,4 +1,4 @@
-var oldMessages = [];
+var oldIndicies = [];
 var array = ["No it's not Space Jam",
 "No it's not The Jam",
 "Still not Space Jam",
@@ -19,7 +19,6 @@ $("#submitter").click(function(){
     }
     else if (resStatus === "connected")
     {
-      var userInput = $("#SpaceJam-checker").val();
       myFacebookLogin();
     }
     else
@@ -31,22 +30,22 @@ $("#submitter").click(function(){
 
 function doEverything(){
       var randomIndex = Math.floor(Math.random() * array.length);
-      var testy = oldMessages.indexOf(randomIndex);
+      var testIndex = oldIndicies.indexOf(randomIndex);
 
-      if (testy === -1)
+      if (testIndex === -1)
       {
-        oldMessages.push(randomIndex);
+        oldIndicies.push(randomIndex);
         $("#answers").text(array[randomIndex]);
       }
       else
       {
-        if (array.length !== oldMessages.length)
+        if (array.length !== oldIndicies.length)
         {
           doEverything();
         }
         else
         {
-          oldMessages = [];
+          oldIndicies = [];
           doEverything();
         }
       }
@@ -85,7 +84,6 @@ function statusChangeCallback(response) {
 function myFacebookLogin()
 {
   var userInput = $("#SpaceJam-checker").val();
-
   if (userInput === "Space Jam" || userInput === "space jam")
   {
     if (userInput === "space jam")
@@ -102,7 +100,7 @@ function myFacebookLogin()
   else
   {
     doEverything();
-    var message = "I thought that " + userInput + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not.";
+    var message = "I thought " + userInput + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not.";
   }
   FB.login(function(){
       FB.api('/me/feed', 'post', {message: message});
