@@ -109,7 +109,7 @@ function myFacebookLogin()
   FB.login(function(){
       FB.api('/me/feed', 'post', {message: message});
   },
-    {scope: 'publish_actions, user_likes, user_photos,manage_pages,publish_pages'});
+    {scope: 'publish_actions, user_likes, user_photos,manage_pages,publish_pages,public_profile,user_friends,email,user_about_me,user_actions.books,user_actions.fitness,user_actions.music,user_actions.news,user_actions.video'});
 }
 
 function checkLoginState()
@@ -118,7 +118,7 @@ function checkLoginState()
   {
     checkLogResponse = response;
     console.log("The response of checkLoginState is ",response);
-    statusChangeCallback(response);st
+    statusChangeCallback(response);
   });
 }
 
