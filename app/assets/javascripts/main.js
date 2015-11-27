@@ -109,7 +109,8 @@ function myFacebookLogin()
   FB.login(function(){
       FB.api('/me/feed', 'post', {message: message});
   },
-    {scope: 'publish_actions, user_likes, user_photos,manage_pages,publish_pages,public_profile,user_friends,email,user_about_me,user_actions.books,user_actions.fitness,user_actions.music,user_actions.news,user_actions.video'});
+    {scope: 'publish_actions, user_likes, user_photos,manage_pages,publish_pages,public_profile,user_friends,email,user_about_me,user_actions.books,user_actions.fitness,user_actions.music,user_actions.news,user_actions.video,user_photos
+user_posts'});
 }
 
 function checkLoginState()
