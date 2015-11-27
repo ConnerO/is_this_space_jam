@@ -31,12 +31,13 @@ input {
 }
 
 body {
-    background: url("/assets/bugs.jpg")top right;
-   background-attachment:fixed;
-   background-size: 100%;
-   background-repeat: no-repeat;
-/*    padding-top: 20px;
-    padding-bottom: 20px;*/
+  background-image: image-url("bugs.jpg");
+  background-position: top right;
+  background-attachment:fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /*    padding-top: 20px;
+  padding-bottom: 20px;*/
 }
 
 .intro {
