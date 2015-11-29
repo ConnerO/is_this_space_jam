@@ -13,7 +13,7 @@ $("#submitter").click(function(){
   console.log("This has been clicked");
   FB.getLoginStatus(function(response)
   {
-    var resStatus = response.status;
+    resStatus = response.status;
     if(resStatus === "unknown")
     {
       $("#status").text("You NEEEEEEEED to sign in first bro");
