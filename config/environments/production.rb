@@ -6,7 +6,7 @@ Rails.application.configure do
 
 
 # config.serve_static_assets = true
-config.assets.compile = true
+  config.assets.compile = true
 
 
   # Eager load code on boot. This eager loads most of Rails and
