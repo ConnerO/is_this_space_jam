@@ -7,6 +7,7 @@ var array = ["No it's not Space Jam",
 "This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are lames");
 console.log("Different test log");
+$("#status").css("color","white");
 
 $("#submitter").click(function(){
   console.log("This has been clicked");
