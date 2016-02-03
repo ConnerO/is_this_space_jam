@@ -108,6 +108,9 @@ function myFacebookLogin()
 
 function checkLoginState()
 {
+  FB.login(function(response) {
+  // handle the response
+}, {scope: 'email,user_likes'});
   FB.getLoginStatus(function(response)
   {
     checkLogResponse = response;
