@@ -108,15 +108,15 @@ function myFacebookLogin()
 
 function checkLoginState()
 {
-  FB.login(function(response) {
-  // handle the response
-}, {scope: 'email,user_likes'});
-  FB.getLoginStatus(function(response)
-  {
-    checkLogResponse = response;
-    console.log("The response of checkLoginState is ",response);
-    statusChangeCallback(response);
-  });
+//   FB.login(function(response) {
+//   // handle the response
+// }, {scope: 'email,user_likes'});
+//   FB.getLoginStatus(function(response)
+//   {
+//     checkLogResponse = response;
+//     console.log("The response of checkLoginState is ",response);
+//     statusChangeCallback(response);
+//   });
 }
 
 function testAPI() {
