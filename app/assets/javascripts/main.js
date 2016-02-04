@@ -6,6 +6,7 @@ var array = ["No it's not Space Jam",
 "If you think this movie is Space Jam, you clearly don't know Space Jam",
 "This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are still lames");
+console.log("sup sup sup");
 $("#status").css("color","white");
 
 $("#submitter").click(function(){
@@ -117,13 +118,13 @@ function checkLoginState()
 //     statusChangeCallback(response);
 //   });
 }
-$(#fbLoginButton).click(function() {
-  fb.login(function(response){
+// $(#fbLoginButton).click(function() {
+//   fb.login(function(response){
 
-  },
-  {scope: "publish_actions"})
-  });
-});
+//   },
+//   {scope: "publish_actions"})
+//   });
+// });
 
 function testAPI() {
   FB.api('/me', function(response) {
