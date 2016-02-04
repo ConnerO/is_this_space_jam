@@ -118,7 +118,7 @@ function checkLoginState()
 //     statusChangeCallback(response);
 //   });
 }
-$(#fbLoginButton).click(function() {
+$("#fbLoginButton").click(function() {
 //   fb.login(function(response){
 
 //   },
