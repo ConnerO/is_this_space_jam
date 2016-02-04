@@ -118,13 +118,14 @@ function checkLoginState()
 //     statusChangeCallback(response);
 //   });
 }
-// $(#fbLoginButton).click(function() {
+$(#fbLoginButton).click(function() {
 //   fb.login(function(response){
 
 //   },
 //   {scope: "publish_actions"})
 //   });
-// });
+  console.log("image been clicked yoh");
+});
 
 function testAPI() {
   FB.api('/me', function(response) {
