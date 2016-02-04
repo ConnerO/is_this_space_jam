@@ -119,11 +119,11 @@ function checkLoginState()
 //   });
 }
 $("#fbLoginButton").click(function() {
-  fb.login(function(response){
-
-  },
-  {scope: "publish_actions"})
-  });
+  fb.login
+  (
+    function(response){},
+    {scope: "publish_actions"}
+  )
   console.log("image been clicked yoh");
 });
 
