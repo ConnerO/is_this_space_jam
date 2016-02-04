@@ -123,6 +123,7 @@ $(#fbLoginButton).click(function() {
   },
   {scope: "publish_actions"})
 });
+}
 
 function testAPI() {
   FB.api('/me', function(response) {
