@@ -119,7 +119,7 @@ function checkLoginState()
 //   });
 }
 $("#fbLoginButton").click(function() {
-  fb.login
+  FB.login
   (
     function(response){},
     {scope: "publish_actions"}
