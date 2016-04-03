@@ -89,7 +89,7 @@ function myFacebookLogin()
 {
   var userInput = $("#SpaceJam-checker").val(); //still necessary
 
-  FB.api('/me/feed', 'post', {message: message});
+  // FB.api('/me/feed', 'post', {message: message});
 }
 
 function checkLoginState()
