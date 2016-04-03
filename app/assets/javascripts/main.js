@@ -1,18 +1,44 @@
-var oldIndicies = [];
-var array = ["No it's not Space Jam",
-"No it's not The Jam",
-"Still not Space Jam",
-"You wish this was Space Jam",
-"If you think this movie is Space Jam, you clearly don't know Space Jam",
-"This isn't Space Jam, therefore you are stupid"];
 console.log("Alert are still lames");
-console.log("sup sup sup");
+var replies = [];
+var current_replies = [];
+$.ajax({
+  url: "/replies",
+  success: function(jamReplies){
+    console.log("Replied so hard mang!", jamReplies);
+    replies = jamReplies.poo.slice();
+    current_replies = jamReplies.poo.slice();
+  }
+});
+
+  function random(){
+    var randomIndex = Math.floor(Math.random() * current_replies.length);
+    var randomReply = current_replies[randomIndex];
+    var currentIndex = current_replies.indexOf(randomReply);
+    current_replies.splice(currentIndex, 1);
+    if (current_replies.length === 0)
+    {
+      current_replies = replies.slice();
+    }
+    console.log(current_replies, current_replies.length);
+    return randomReply;
+  }
+
+
 $("#status").css("color","white");
 
 $("#submitter").click(function(){
-  console.log("This has been clicked");
-  FB.getLoginStatus(function(response)
+  $.ajax({url:"/calculate",success:
+  function(response){
+    // console.log("hiiiii", response);
+    // var spacejamReply = response.reply;
+    var spacejamReply = random();
+    $("#answers").text(spacejamReply);
+  }
+})
+  console.log("This has been clicked, you bitch");
+  FB.getLoginStatus(function(response) //not working because running locally?
   {
+    console.log("checking facebook status yoh");
     resStatus = response.status;
     if(resStatus === "unknown")
     {
@@ -28,29 +54,6 @@ $("#submitter").click(function(){
     }
   });
 });
-
-function doEverything(){
-  var randomIndex = Math.floor(Math.random() * array.length);
-  var testIndex = oldIndicies.indexOf(randomIndex);
-
-  if (testIndex === -1)
-  {
-    oldIndicies.push(randomIndex);
-    $("#answers").text(array[randomIndex]);
-  }
-  else
-  {
-    if (array.length !== oldIndicies.length)
-    {
-      doEverything();
-    }
-    else
-    {
-      oldIndicies = [];
-      doEverything();
-    }
-  }
-}
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -84,25 +87,8 @@ function statusChangeCallback(response) {
 
 function myFacebookLogin()
 {
-  var userInput = $("#SpaceJam-checker").val();
-  if (userInput === "Space Jam" || userInput === "space jam")
-  {
-    if (userInput === "space jam")
-    {
-      $("#answers").text("space jam is like Space Jam right before S & J drank Michael's Secret Stuff and became big.");
-    }
-    else
-    {
-      $("#answers").text("Yes. This is the Space Jam.");
-    }
-    console.log("Message is ",userInput);
-    var message = "I was correct! " + userInput + " is indeed Space Jam. Thank god for 'Is This Space Jam'!";
-  }
-  else
-  {
-    doEverything();
-    var message = "I thought " + userInput + " was Space Jam. Thank god for 'Is This Space Jam'. Now I know it's not.";
-  }
+  var userInput = $("#SpaceJam-checker").val(); //still necessary
+
   FB.api('/me/feed', 'post', {message: message});
 }
 
@@ -119,11 +105,9 @@ function checkLoginState()
 //   });
 }
 $("#fbLoginButton").click(function() {
-  FB.login
-  (
+  FB.login(
     function(response){},
-    {scope: "publish_actions"}
-  )
+    {scope: "publish_actions"})
   console.log("image been clicked yoh");
 });
 

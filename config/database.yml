@@ -1,11 +1,9 @@
-# SQLite version 3.x
-#   gem install sqlite3
+#   gem install pg
 #
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+#   gem 'pg'
 #
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   pool: 5
   timeout: 5000
 
@@ -21,5 +19,9 @@ test:
   database: my_database_test
 
 production:
-  <<: *default
+  # <<: *default
+  # database: my_database_production
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
   database: my_database_production
