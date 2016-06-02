@@ -1,6 +1,6 @@
 class ReplyController < ApplicationController
   def reply
-    # puts "wake up, reply. Stand up, reply"
+    puts "wake up, reply. Stand up, reply"
     # replies = Reply.all
     # replies_filtered = []
     # replies.each do |reply|
