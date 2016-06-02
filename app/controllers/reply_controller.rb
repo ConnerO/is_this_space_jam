@@ -7,6 +7,6 @@ class ReplyController < ApplicationController
     #   replies_filtered << reply.reply
     # end
     # render :json => {poo:replies_filtered}
-    render :json => {sup: "supppppppp"}
+    render :json => {dong: "dongssssssss"}
   end
 end
