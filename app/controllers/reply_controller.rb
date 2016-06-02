@@ -2,7 +2,7 @@ class ReplyController < ApplicationController
   def reply
     puts "Shake and Bake!!!"
     replies = Reply.all
-    puts replies
+    puts replies.nil?
     replies_filtered = []
     # replies.each do |reply|
     #   replies_filtered << reply.reply
