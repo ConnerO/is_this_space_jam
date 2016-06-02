@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
     end
 
     def test
-      puts "this is a test"
+      puts "this is a new test"
       render test
     end
 end
