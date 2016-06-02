@@ -1,4 +1,5 @@
 console.log("Alert are still lames");
+console.log("new test bro");
 var replies = [];
 var current_replies = [];
 $.ajax({

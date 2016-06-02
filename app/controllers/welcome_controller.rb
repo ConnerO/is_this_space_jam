@@ -5,4 +5,8 @@ class WelcomeController < ApplicationController
       puts "reply: #{reply}"
       render :json => reply
     end
+
+    def test
+      puts "this is a test"
+    end
 end
