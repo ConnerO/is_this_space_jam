@@ -8,6 +8,6 @@ class WelcomeController < ApplicationController
 
     def test
       puts "this is a new test"
-      render test
+      # render test
     end
 end
