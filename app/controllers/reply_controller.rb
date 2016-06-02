@@ -5,7 +5,7 @@ class ReplyController < ApplicationController
     replies.each do |reply|
       replies_filtered << reply.reply
     end
-    puts "sup replying so hard!"
+    puts "I reply hard, I play hard!"
     render :json => {poo:replies_filtered}
   end
 end
