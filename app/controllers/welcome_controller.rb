@@ -9,5 +9,6 @@ class WelcomeController < ApplicationController
     def test
       puts "this is a new test"
       # render test
+      render :json => {poo:"poo"}
     end
 end
