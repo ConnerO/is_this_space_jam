@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/* line 17, /Users/kylesmith/code/is_this_space_jam/app/assets/stylesheets/application.css.scss */
+.centerstuffs {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  margin: 5%;
+}
+
+/* line 24, /Users/kylesmith/code/is_this_space_jam/app/assets/stylesheets/application.css.scss */
+#test {
+  color: white;
+}
+
+/* line 28, /Users/kylesmith/code/is_this_space_jam/app/assets/stylesheets/application.css.scss */
+.btn-primary {
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* line 33, /Users/kylesmith/code/is_this_space_jam/app/assets/stylesheets/application.css.scss */
+input {
+  color: black;
+}
+
+/* line 37, /Users/kylesmith/code/is_this_space_jam/app/assets/stylesheets/application.css.scss */
+body {
+  background-image: url(/assets/bugs-eef5ce64016c8ffd8e287ce85638902a5d4d14ec494cd2a3576222f24c4ae270.jpg);
+  background-position: top right;
+  background-attachment: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /*    padding-top: 20px;
+  padding-bottom: 20px;*/
+}
+
+/* line 47, /Users/kylesmith/code/is_this_space_jam/app/assets/stylesheets/application.css.scss */
+.intro {
+  border-radius: 6px;
+  background-color: rgba(139, 0, 0, 0.75);
+  padding-top: 1px;
+  padding-right: 1px;
+  padding-bottom: 1px;
+  padding-left: 1px;
+}
+
+/* line 55, /Users/kylesmith/code/is_this_space_jam/app/assets/stylesheets/application.css.scss */
+#status {
+  color: white;
+}

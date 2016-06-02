@@ -8,5 +8,6 @@ class WelcomeController < ApplicationController
 
     def test
       puts "this is a test"
+      render test
     end
 end
