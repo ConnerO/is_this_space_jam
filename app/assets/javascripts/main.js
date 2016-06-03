@@ -11,32 +11,35 @@ $.ajax({
   }
 });
 
-  function random(){
-    var randomIndex = Math.floor(Math.random() * current_replies.length);
-    var randomReply = current_replies[randomIndex];
-    var currentIndex = current_replies.indexOf(randomReply);
-    current_replies.splice(currentIndex, 1);
-    if (current_replies.length === 0)
-    {
-      current_replies = replies.slice();
-    }
-    console.log(current_replies, current_replies.length);
-    return randomReply;
+function random(){
+  var randomIndex = Math.floor(Math.random() * current_replies.length);
+  var randomReply = current_replies[randomIndex];
+  var currentIndex = current_replies.indexOf(randomReply);
+  current_replies.splice(currentIndex, 1);
+  if (current_replies.length === 0)
+  {
+    current_replies = replies.slice();
   }
-
-
-$("#status").css("color","white");
+  console.log(current_replies, current_replies.length);
+  return randomReply;
+}
 
 $("#submitter").click(function(){
-  $.ajax({url:"/calculate",success:
-  function(response){
-    // console.log("hiiiii", response);
-    // var spacejamReply = response.reply;
-    var spacejamReply = random();
-    $("#answers").text(spacejamReply);
-  }
-})
+  var currentMovie = $("#SpaceJam-checker").val();
+  $.ajax({url:"/calculate",
+    data: {currentMovie: currentMovie},
+    success: function(response){
+      var isItSpaceJam = response.is_spacejam
+      // console.log("hiiiii", response);
+      var congratsMessage = "Congrats, it's Space Jam!! Lucky you!";
+      var spacejamReply = isItSpaceJam ? congratsMessage : random();
+      $("#answers").text(spacejamReply);
+    }
+  });
   console.log("This has been clicked, you bitch");
+  facebookStuff(); //checks if logged in?
+});
+function facebookStuff(){
   FB.getLoginStatus(function(response) //not working because running locally?
   {
     console.log("checking facebook status yoh");
@@ -54,7 +57,8 @@ $("#submitter").click(function(){
       console.log("The response is ",response);
     }
   });
-});
+}
+
 
 window.fbAsyncInit = function() {
   FB.init({
