@@ -9,6 +9,6 @@ class ReplyController < ApplicationController
     #   replies_filtered << reply.reply
     # end
     # render :json => {poo:replies_filtered}
-    render :json => {dong: "hceking what replies does"}
+    render :json => {sup: Reply.count}
   end
 end
