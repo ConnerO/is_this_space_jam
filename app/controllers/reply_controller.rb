@@ -8,7 +8,7 @@ class ReplyController < ApplicationController
     replies.each do |reply|
       replies_filtered << reply.reply
     end
-    render :json => {poo:replies_filtered}
+    # render :json => {poo:replies_filtered}
     render :json => {sup: Reply.count}
   end
 end
