@@ -5,10 +5,10 @@ class ReplyController < ApplicationController
     # puts "not sure what should be here, but think it should be some sort of active record. #{Reply.class}"
     replies = Reply.all
     replies_filtered = []
-    # replies.each do |reply|
-    #   replies_filtered << reply.reply
-    # end
-    # render :json => {poo:replies_filtered}
+    replies.each do |reply|
+      replies_filtered << reply.reply
+    end
+    render :json => {poo:replies_filtered}
     render :json => {sup: Reply.count}
   end
 end
