@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "calculate" => "welcome#determine_spacejam"
   get "replies" => "reply#reply"
   get "test" => "welcome#test"
-  get "add" => "replay#add"
+  get "add" => "reply#add"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
