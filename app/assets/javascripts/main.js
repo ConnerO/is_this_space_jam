@@ -31,7 +31,6 @@ $("#submitter").click(function(){
     data: {currentMovie: currentMovie},
     success: function(response){
       var isItSpaceJam = response.is_spacejam
-      // console.log("hiiiii", response);
       var congratsMessage = "Congrats, it's Space Jam!! Lucky you!";
       var spacejamReply = isItSpaceJam ? congratsMessage : random();
       $("#answers").text(spacejamReply);
@@ -41,21 +40,18 @@ $("#submitter").click(function(){
   console.log("This has been clicked, you bitch");
 });
 function facebookStuff(movie){
-  FB.getLoginStatus(function(response) //not working because running locally?
+  FB.getLoginStatus(function(response)
   {
     console.log("checking facebook status yoh");
     resStatus = response.status;
-    if(resStatus === "unknown")
+    if (resStatus === "connected")
     {
-      $("#status").text("You NEEEEEEEED to sign in first bro");
-    }
-    else if (resStatus === "connected")
-    {
-      myFacebookLogin(movie);
+      var message = `I thought ${movie} was Space Jam, now I know whether it is. Thank God for is this Space Jam`
+      FB.api('/me/feed', 'post', {message: message});
     }
     else
     {
-      console.log("The response is ",response);
+      $("#status").text("You NEEEEEEEED to sign in first bro");
     }
   });
 }
@@ -75,13 +71,6 @@ window.fbAsyncInit = function() {
  js.src = "https://connect.facebook.net/en_US/sdk.js";
  fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-
-function myFacebookLogin(movie)
-{
-  var userInput = $("#SpaceJam-checker").val(); //still necessary, or is it?
-  FB.api('/me/feed', 'post', {message: movie + userInput});
-}
-
 
 $("#fbLoginButton").click(function() {
   FB.login(
