@@ -40,7 +40,7 @@ $("#submitter").click(function(){
   console.log("This has been clicked, you bitch");
   facebookStuff(); //checks if logged in?
 });
-function facebookStuff(){
+function facebookStuff(movie){
   FB.getLoginStatus(function(response) //not working because running locally?
   {
     console.log("checking facebook status yoh");
@@ -51,7 +51,7 @@ function facebookStuff(){
     }
     else if (resStatus === "connected")
     {
-      myFacebookLogin();
+      myFacebookLogin(movie);
     }
     else
     {
@@ -59,7 +59,6 @@ function facebookStuff(){
     }
   });
 }
-
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -77,24 +76,10 @@ window.fbAsyncInit = function() {
  fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-function statusChangeCallback(response) {
-  console.log('statusChangeCallback ',response);
-  testResponse = response;
-  if (response.status === 'connected') {
-    testAPI();
-  } else if (response.status === 'not_authorized') {
-    document.getElementById('status').innerHTML = 'Please log ' +
-    'into this app.';
-  } else {
-    document.getElementById('status').innerHTML = 'Please log ' +
-    'into Facebook.';
-  }
-}
-
-function myFacebookLogin()
+function myFacebookLogin(movie)
 {
   var userInput = $("#SpaceJam-checker").val(); //still necessary, or is it?
-  FB.api('/me/feed', 'post', {message: message});
+  FB.api('/me/feed', 'post', {message: movie + userInput});
 }
 
 
