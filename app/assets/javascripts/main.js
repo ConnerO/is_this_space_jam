@@ -35,10 +35,10 @@ $("#submitter").click(function(){
       var congratsMessage = "Congrats, it's Space Jam!! Lucky you!";
       var spacejamReply = isItSpaceJam ? congratsMessage : random();
       $("#answers").text(spacejamReply);
+      facebookStuff(currentMovie);
     }
   });
   console.log("This has been clicked, you bitch");
-  facebookStuff(); //checks if logged in?
 });
 function facebookStuff(movie){
   FB.getLoginStatus(function(response) //not working because running locally?
