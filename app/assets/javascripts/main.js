@@ -92,12 +92,12 @@ function statusChangeCallback(response) {
 
 function myFacebookLogin()
 {
-  var userInput = $("#SpaceJam-checker").val(); //still necessary
+  var userInput = $("#SpaceJam-checker").val(); //still necessary, or is it?
 
   // FB.api('/me/feed', 'post', {message: message});
 }
 
-function checkLoginState()
+function checkLoginState() // does nothing?
 {
 //   FB.login(function(response) {
 //   // handle the response
@@ -111,8 +111,11 @@ function checkLoginState()
 }
 $("#fbLoginButton").click(function() {
   FB.login(
-    function(response){},
+    function(response){
+      testAPI();
+    },
     {scope: "publish_actions"})
+
   console.log("image been clicked yoh");
 });
 
