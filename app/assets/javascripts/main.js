@@ -1,5 +1,6 @@
 console.log("Alert are still lames");
 console.log("new test bro");
+var loggedIn = false;
 var replies = [];
 var current_replies = [];
 $.ajax({
@@ -93,22 +94,10 @@ function statusChangeCallback(response) {
 function myFacebookLogin()
 {
   var userInput = $("#SpaceJam-checker").val(); //still necessary, or is it?
-
-  // FB.api('/me/feed', 'post', {message: message});
+  FB.api('/me/feed', 'post', {message: message});
 }
 
-function checkLoginState() // does nothing?
-{
-//   FB.login(function(response) {
-//   // handle the response
-// }, {scope: 'email,user_likes'});
-//   FB.getLoginStatus(function(response)
-//   {
-//     checkLogResponse = response;
-//     console.log("The response of checkLoginState is ",response);
-//     statusChangeCallback(response);
-//   });
-}
+
 $("#fbLoginButton").click(function() {
   FB.login(
     function(response){
