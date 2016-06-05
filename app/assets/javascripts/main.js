@@ -49,7 +49,7 @@ function facebookStuff(movie, isItSpaceJam){
       var firstMessage = `I thought ${movie} was Space Jam. Now I know`;
       var middleMessage = isItSpaceJam ? " it is." : " it's not."
       var lastMessage = "Thank goodness for Is This Space Jam";
-      var message = `${firstMessage}${middleMessage}${lastMessage};
+      var message = `${firstMessage}${middleMessage}${lastMessage}`;
       FB.api('/me/feed', 'post', {message: message});
     }
     else
