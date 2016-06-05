@@ -46,7 +46,7 @@ function facebookStuff(movie, isItSpaceJam){
     resStatus = response.status;
     if (resStatus === "connected")
     {
-      postFbMessage(movie);
+      postFbMessage(movie, isItSpaceJam);
     }
     else
     {
@@ -55,7 +55,7 @@ function facebookStuff(movie, isItSpaceJam){
   });
 }
 
-function postFbMessage(movie){
+function postFbMessage(movie, isItSpaceJam){
   var firstMessage = `I thought ${movie} was Space Jam. Now I know`;
   var middleMessage = isItSpaceJam ? " it is." : " it's not."
   var lastMessage = "Thank goodness for Is This Space Jam";
