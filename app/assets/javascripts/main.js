@@ -34,19 +34,22 @@ $("#submitter").click(function(){
       var congratsMessage = "Congrats, it's Space Jam!! Lucky you!";
       var spacejamReply = isItSpaceJam ? congratsMessage : random();
       $("#answers").text(spacejamReply);
-      facebookStuff(currentMovie);
+      facebookStuff(currentMovie, isItSpaceJam);
     }
   });
   console.log("This has been clicked, you bitch");
 });
-function facebookStuff(movie){
+function facebookStuff(movie, isItSpaceJam){
   FB.getLoginStatus(function(response)
   {
     console.log("checking facebook status yoh");
     resStatus = response.status;
     if (resStatus === "connected")
     {
-      var message = `I thought ${movie} was Space Jam, now I know whether it is. Thank God for is this Space Jam`
+      var firstMessage = `I thought ${movie} was Space Jam. Now I know`;
+      var middleMessage = isItSpaceJam ? " it is." : " it's not."
+      var lastMessage = "Thank goodness for Is This Space Jam";
+      var message = `${firstMessage}${middleMessage}${lastMessage};
       FB.api('/me/feed', 'post', {message: message});
     }
     else
