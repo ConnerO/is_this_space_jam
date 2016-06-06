@@ -1,8 +1,6 @@
 class ReplyController < ApplicationController
   def reply
-    puts "New message yoh"
-    puts "the amount of entries in the database are #{Reply.count}"
-    # puts "not sure what should be here, but think it should be some sort of active record. #{Reply.class}"
+    puts "Hiiiiii there friend"
     replies = Reply.all
     replies_filtered = []
     replies.each do |reply|
